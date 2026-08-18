@@ -1,27 +1,37 @@
+
 #ifndef BUSCA_H
 #define BUSCA_H
 
-typedef int tipoDado;
+// tipo de dado armazenado no vetor
+typedef int TipoDado;
 
+// capacidade de armazenamento do vetor
 #define TAM_MAX 100
 
+// estrutura de dados para o vetor
 typedef struct{
-    tipoDado dados[TAM_MAX +1];
-    int tamanho; // qnt de elementos armazenados
+    TipoDado dados[TAM_MAX + 1];
+    int tamanho; // qtde de elementos armazenados
 } Vetor;
 
+
 // inicializar o vetor (construtor)
-void criarVetor(Vetor *v);
+void criaVetor(Vetor *v);
 
-int insereNoVetor(Vetor *v, tipoDado valor);
+// insere um elemento ao final do vetor
+int insereNoVetor(Vetor *v, TipoDado valor);
 
-void imprimeVetor(const Vetor *v, void(*imprimeElemento)(tipoDado));
+// imprime os elementos do vetor
+void imprimeVetor(const Vetor *v, void(*imprimeElemento)(TipoDado));
 
-int buscaSequencial(const Vetor *v, tipoDado chave);
+// Busca sequencial basica
+int buscaSequencial(const Vetor *v, TipoDado chave);
 
-int buscaSequencialComParada(const Vetor *v, tipoDado chave);
+// Busca sequencial com parada antecipada
+int buscaSequencialComParada(const Vetor *v, TipoDado chave);
 
-int buscaSequencialComSentinela(const Vetor *v, tipoDado chave);
+// Busca sequencial com sentinela
+int buscaSequencialComSentinela(const Vetor *v, TipoDado chave);
 
-#endif
+#endif // BUSCA_H
 

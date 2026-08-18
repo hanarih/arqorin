@@ -31,7 +31,7 @@ int buscaSequencial(const Vetor *v, TipoDado chave);
 int buscaSequencialComParada(const Vetor *v, TipoDado chave);
 
 // Busca sequencial com sentinela
-int buscaSequencialComSentinela(const Vetor *v, TipoDado chave);
+int buscaSequencialComSentinela(Vetor *v, TipoDado chave);
 
 #endif // BUSCA_H
 

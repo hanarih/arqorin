@@ -29,7 +29,6 @@ void imprimeVetor(const Vetor *v, void(*imprimeElemento)(TipoDado)){
 }
 
 
-// Busca sequencial basica
 int buscaSequencial(const Vetor *v, TipoDado chave){
 
     int i;
@@ -43,7 +42,6 @@ int buscaSequencial(const Vetor *v, TipoDado chave){
     return -1;
 }
 
-// Busca sequencial com parada antecipada
 int buscaSequencialComParada(const Vetor *v, TipoDado chave){
 
     int i;
@@ -59,23 +57,18 @@ int buscaSequencialComParada(const Vetor *v, TipoDado chave){
     }
 }
 
-// Busca sequencial com sentinela
-int buscaSequencialComSentinela(const Vetor *v, TipoDado chave){
+int buscaSequencialComSentinela(Vetor *v, TipoDado chave){
     
-    // remove o const pra insetir a sentinela
-    Vetor *vetor = (Vetor *)v;
-    int n = v->tamanho;
     int i;
 
-    v->dados[n] = chave; // insere a sentinela
-    i = 0;
-
-    while(vetor->dados[i] != chave){
+    v->dados[v->tamanho] = chave; // insere a sentinela
+   
+    while(v->dados[i] != chave){
         i = i + 1;
     }
 
-    if(i < n){
-        return i; // encontrou nos dados reais
+    if(i < v->tamanho){
+        return i; // encontrou 
     } else {
         return -1; // enocntrou só na sentinela, nao existe
     }
